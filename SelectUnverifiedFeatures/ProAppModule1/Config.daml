@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArcGIS defaultAssembly="ProAppModule1.dll"
+        defaultNamespace="ProAppModule1"
+        xmlns="http://schemas.esri.com/DADF/Registry"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://schemas.esri.com/DADF/Registry file:///C:/Program%20Files/ArcGIS/Pro/bin/ArcGIS.Desktop.Framework.xsd">
+
+  <AddInInfo id="{88436ed3-7c20-4d67-a280-fb571dca152e}" version="1.0" desktopVersion="3.4.55405" product="ArcGISPro">
+    <Name>ProAppModule1</Name>   
+    <Description>ProAppModule1 description</Description>
+    <Image>Images\AddinDesktop32.png</Image>
+    <Author>jesoe@gst.dk</Author>
+    <Company>Geodatastyrelsen</Company>
+    <Date>11/18/2024 9:22:09 PM</Date>
+    <Subject>Framework</Subject>
+    <!-- Note subject can be one or more of these topics:
+                    Content, Framework, Editing, Geodatabase, Geometry, Geoprocessing, Layouts, Map Authoring, Map Exploration -->
+  </AddInInfo>
+
+  <modules>
+    <insertModule id="Geodatastyrelsen_ArcGIS_Modules_Module1" className="Module1" autoLoad="false" caption="Module1">
+      <!-- uncomment to have the control hosted on a separate tab-->
+      <tabs>
+        <!--<tab id="ProAppModule1_Tab1" caption="New Tab">
+          <group refID="ProAppModule1_Group1"/>
+        </tab>-->
+      </tabs>
+              
+      <groups>
+        <!-- comment this out if you have no controls on the Addin tab to avoid
+              an empty group-->
+        <group id="Geodatastyrelsen_ArcGIS_Modules_Group1" caption="SelectUnverified" appearsOnAddInTab="true">          
+          <button refID="Geodatastyrelsen_ArcGIS_Modules_ButtonSelectUnverified"/>
+        </group>
+      </groups>
+      
+      <controls>
+        <button id="Geodatastyrelsen_ArcGIS_Modules_ButtonSelectUnverified" className="Geodatastyrelsen.ArcGIS.Modules.ButtonSelectUnverified" condition="esri_maritime_s57_data" keytip="SU"
+          smallImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionSelectByAttributes16.png"
+          largeImage="pack://application:,,,/ArcGIS.Desktop.Resources;component/Images/SelectionSelectByAttributes32.png"
+          caption="Select Unverified">
+          <tooltip heading="[GST] Select Unverified">
+            Selected all unverified features and records in the geodatabase(s) present in the map.
+            <disabledText>Authorize and enable the Maritime Charting Extension to access this functionality.</disabledText>
+          </tooltip>
+        </button>
+      </controls> 
+      
+    </insertModule>
+  </modules>
+</ArcGIS>
